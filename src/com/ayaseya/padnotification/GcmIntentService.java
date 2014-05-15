@@ -119,13 +119,12 @@ public class GcmIntentService extends IntentService {
 
 			Calendar calendar = Calendar.getInstance();
 			int hour = calendar.get(Calendar.HOUR_OF_DAY);
-
 			if (timeZone.indexOf(String.valueOf(hour)) == -1) {
 				notificationPermission = false;
-				//				Log.v(TAG, "通知が許可された時間帯ではありません。");
+				Log.v(TAG, "通知が許可された時間帯ではありません。");
 			} else {
 				notificationPermission = true;
-				//				Log.v(TAG, "通知が許可された時間帯です。");
+				Log.v(TAG, "通知が許可された時間帯です。");
 			}
 		}
 
@@ -240,7 +239,7 @@ public class GcmIntentService extends IntentService {
 
 					@Override
 					protected Void doInBackground(Void... params) {
-						//						Log.v(TAG, "doInBackground()");
+//						Log.v(TAG, "doInBackground()");
 
 						// soundPoolのインスタンスを取得します。
 						soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
@@ -259,7 +258,7 @@ public class GcmIntentService extends IntentService {
 										//モードによって通知音、振動の有無の振り分けを行います。
 
 										if (isPlugged) {// イヤホンが接続している場合です。
-										//											Log.v(TAG, "イヤホンが接続されています。");
+											//											Log.v(TAG, "イヤホンが接続されています。");
 											if (ringerMode) {// 通常モード
 												Log.v(TAG, "通常モード");
 												if (checkbox_sound) {
@@ -283,7 +282,7 @@ public class GcmIntentService extends IntentService {
 											}
 
 										} else {// イヤホンが接続していない場合です。
-										//											Log.v(TAG, "イヤホンが接続されていません。");
+											//											Log.v(TAG, "イヤホンが接続されていません。");
 											if (ringerMode) {// 通常モード
 												Log.v(TAG, "通常モード");
 												if (checkbox_sound) {
