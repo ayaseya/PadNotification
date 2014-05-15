@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="entries_list_preference">
+        <item>0時</item>
+        <item>1時</item>
+        <item>2時</item>
+        <item>3時</item>
+        <item>4時</item>
+        <item>5時</item>
+        <item>6時</item>
+        <item>7時</item>
+        <item>8時</item>
+        <item>9時</item>
+        <item>10時</item>
+        <item>11時</item>
+        <item>12時</item>
+        <item>13時</item>
+        <item>14時</item>
+        <item>15時</item>
+        <item>16時</item>
+        <item>17時</item>
+        <item>18時</item>
+        <item>19時</item>
+        <item>20時</item>
+        <item>21時</item>
+        <item>22時</item>
+        <item>23時</item>
+    </string-array>
+    <string-array name="entryvalues_list_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+    </string-array>
+    <string-array name="entryvalues_default_values">
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+    </string-array>
+
+</resources>

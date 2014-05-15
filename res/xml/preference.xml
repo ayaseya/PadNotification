@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="通知時の設定" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="checkbox_sound_key"
+            android:summary="通知時に効果音を鳴らします"
+            android:title="通知音" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="checkbox_vibration_key"
+            android:summary="通知時に端末を振動させます"
+            android:title="バイブレーション" />
+
+        <MultiSelectListPreference
+            android:defaultValue="@array/entryvalues_default_values"
+            android:entries="@array/entries_list_preference"
+            android:entryValues="@array/entryvalues_list_preference"
+            android:key="list_preference"
+            android:summary="通知したい時間帯を指定します"
+            android:title="時間帯" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
