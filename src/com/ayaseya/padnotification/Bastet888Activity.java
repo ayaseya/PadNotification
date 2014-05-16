@@ -4,6 +4,7 @@ import static com.ayaseya.padnotification.CommonUtilities.*;
 
 import java.util.ArrayList;
 
+import jp.co.imobile.sdkads.android.ImobileSdkAd;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -19,7 +20,9 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListView;
 
-public class DialogActivity extends Activity {
+import com.google.analytics.tracking.android.EasyTracker;
+
+public class Bastet888Activity extends Activity {
 
 	private ArrayList<String> subject = new ArrayList<String>();
 	private ArrayList<String> url = new ArrayList<String>();
@@ -27,7 +30,7 @@ public class DialogActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		Log.v(TAG, "Bastet888Activity");
 		// タイトルを非表示にします。
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -35,6 +38,12 @@ public class DialogActivity extends Activity {
 
 		//ダイアログの縦横幅を最大にします。
 		getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+
+		// 広告スポットを登録します。
+		ImobileSdkAd.registerSpot(this, "28117", "101525", "226081");
+
+		// 広告を取得します。
+		ImobileSdkAd.start("226081");
 
 		Intent intent = getIntent();
 		if (intent != null) {
@@ -69,8 +78,8 @@ public class DialogActivity extends Activity {
 			}
 		}
 
-		//		title.add("1.xxxxx");
-		//		url.add("http://www.gamecity.ne.jp/nol/");
+		subject.add("おすすめアプリにゃ（PR）");
+		url.add("i-mobile");
 		//		icon.add("f01");
 		//
 		//		title.add("2.xxxxx");
@@ -104,9 +113,13 @@ public class DialogActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Log.v(TAG, "position=" + position);
 
-				Uri uri = Uri.parse(url.get(position));
-				Intent browser = new Intent(Intent.ACTION_VIEW, uri);
-				startActivity(browser);
+				if (url.get(position).equals("i-mobile")) {
+					ImobileSdkAd.showAd(Bastet888Activity.this, "226081");
+				} else {
+					Uri uri = Uri.parse(url.get(position));
+					Intent browser = new Intent(Intent.ACTION_VIEW, uri);
+					startActivity(browser);
+				}
 			}
 		});
 
@@ -117,6 +130,25 @@ public class DialogActivity extends Activity {
 		NotificationManager mNotificationManager = (NotificationManager) this
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 		mNotificationManager.cancel(GcmIntentService.NOTIFICATION_ID);
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);
+	}
+
+	@Override
+	protected void onDestroy() {
+		// 広告の後処理を行います。
+		ImobileSdkAd.activityDestory();
+		super.onDestroy();
 	}
 
 }

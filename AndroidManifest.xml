@@ -7,9 +7,8 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+    <!-- i-mobile広告用 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- GCM connects to Google Services. -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -95,13 +94,24 @@
         <service android:name="com.ayaseya.padnotification.GcmIntentService" />
 
         <activity
-            android:name="DialogActivity"
+            android:name="Bastet888Activity"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
             android:theme="@style/Theme.SemiTransparent" >
         </activity>
         <activity android:name="SettingActivity" >
         </activity>
+
+        <!-- i-mobile広告用 -->
+        <meta-data
+            android:name="i-mobile_DebugLogging"
+            android:value="true" />
+        <meta-data
+            android:name="i-mobile_Publisher_ID"
+            android:value="28117" />
+        <meta-data
+            android:name="i-mobile_Testing"
+            android:value="true" />
     </application>
 
 </manifest>

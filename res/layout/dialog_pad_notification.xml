@@ -2,14 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp" >
+    android:orientation="vertical" >
 
     <ListView
         android:id="@+id/updateListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/triangle"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/balloon" >
 
     </ListView>
@@ -22,12 +24,24 @@
         android:layout_alignParentLeft="true"
         android:src="@drawable/triangle" />
 
+    <jp.co.imobile.android.AdView
+        android:id="@+id/i_mobile_banner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        asid="226271"
+        mid="101525" >
+    </jp.co.imobile.android.AdView>
+
     <ImageView
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/i_mobile_banner"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:src="@drawable/souhei_icon" />
 
 </RelativeLayout>

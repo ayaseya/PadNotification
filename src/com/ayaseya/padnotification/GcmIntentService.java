@@ -253,7 +253,7 @@ public class GcmIntentService extends IntentService {
 									if (notificationPermission) {// 設定で許可された時間帯かの判定です。
 
 										// Notificationの通知を実行します。
-										sendNotification("公式サイトからのお知らせが" + extras.get("INDEX") + "件あります。", intent);
+										sendNotification("パズドラ運営サイトからのお知らせが" + extras.get("INDEX") + "件あるにゃ", intent);
 
 										//モードによって通知音、振動の有無の振り分けを行います。
 
@@ -372,7 +372,7 @@ public class GcmIntentService extends IntentService {
 		mNotificationManager = (NotificationManager)
 				this.getSystemService(Context.NOTIFICATION_SERVICE);
 
-		Intent intent = new Intent(this, DialogActivity.class);
+		Intent intent = new Intent(this, Bastet888Activity.class);
 		intent.putExtra("UPDATE", i);
 
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
@@ -380,7 +380,7 @@ public class GcmIntentService extends IntentService {
 
 		NotificationCompat.Builder mBuilder =
 				new NotificationCompat.Builder(this)
-						.setSmallIcon(R.drawable.ic_launcher)
+						.setSmallIcon(R.drawable.bastet888)
 						.setContentTitle(getResources().getString(R.string.app_name))
 						.setStyle(new NotificationCompat.BigTextStyle()
 								.bigText(msg))

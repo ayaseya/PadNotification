@@ -39,7 +39,7 @@ public final class CommonUtilities {
      * GAEのユニークなURL、末尾の/は削除しておく必要がある
      */
 //    static final String SERVER_URL = "http://1-dot-nol-notification.appspot.com";
-    static final String SERVER_URL = "http://192.168.21.22:8888";
+    static final String SERVER_URL = "http://192.168.21.13:8888";
     /**
      * Google API project id registered to use GCM.
      * Google Developers Console
