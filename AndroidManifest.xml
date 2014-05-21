@@ -109,9 +109,6 @@
         <meta-data
             android:name="i-mobile_Publisher_ID"
             android:value="28117" />
-        <meta-data
-            android:name="i-mobile_Testing"
-            android:value="true" />
     </application>
 
 </manifest>

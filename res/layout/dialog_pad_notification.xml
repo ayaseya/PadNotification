@@ -42,6 +42,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:src="@drawable/souhei_icon" />
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:src="@drawable/bastet" />
 
 </RelativeLayout>

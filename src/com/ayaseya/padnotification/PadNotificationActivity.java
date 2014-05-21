@@ -434,9 +434,10 @@ public class PadNotificationActivity extends Activity {
 			Intent intent = new Intent(this, SettingActivity.class);
 			startActivity(intent);
 			
-		}else if(id==R.id.action_notification){
-			sendNotification("パズドラ運営サイトからのお知らせが3件あるにゃ");
 		}
+//		else if(id==R.id.action_notification){
+//			sendNotification("パズドラ運営サイトからのお知らせが3件あるにゃ");
+//		}
 		return super.onOptionsItemSelected(item);
 		
 		
