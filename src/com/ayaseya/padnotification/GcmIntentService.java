@@ -87,9 +87,9 @@ public class GcmIntentService extends IntentService {
 
 	private Vibrator vibrator;
 
-	private boolean silentMode;
+	private boolean silentMode = false;
 
-	private boolean vibrateMode;
+	private boolean vibrateMode = false;
 
 	private boolean notificationPermission;
 
@@ -100,6 +100,12 @@ public class GcmIntentService extends IntentService {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+
+		ringerMode = false;
+		silentMode = false;
+		vibrateMode = false;
+
+		isPlugged = false;
 
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -239,7 +245,7 @@ public class GcmIntentService extends IntentService {
 
 					@Override
 					protected Void doInBackground(Void... params) {
-//						Log.v(TAG, "doInBackground()");
+						//						Log.v(TAG, "doInBackground()");
 
 						// soundPoolのインスタンスを取得します。
 						soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
@@ -258,7 +264,7 @@ public class GcmIntentService extends IntentService {
 										//モードによって通知音、振動の有無の振り分けを行います。
 
 										if (isPlugged) {// イヤホンが接続している場合です。
-											//											Log.v(TAG, "イヤホンが接続されています。");
+											Log.v(TAG, "イヤホンが接続されています。");
 											if (ringerMode) {// 通常モード
 												Log.v(TAG, "通常モード");
 												if (checkbox_sound) {
@@ -282,7 +288,7 @@ public class GcmIntentService extends IntentService {
 											}
 
 										} else {// イヤホンが接続していない場合です。
-											//											Log.v(TAG, "イヤホンが接続されていません。");
+											Log.v(TAG, "イヤホンが接続されていません。");
 											if (ringerMode) {// 通常モード
 												Log.v(TAG, "通常モード");
 												if (checkbox_sound) {
@@ -300,9 +306,7 @@ public class GcmIntentService extends IntentService {
 
 											} else if (silentMode) {// サイレントモード
 												Log.v(TAG, "サイレントモード");
-												if (checkbox_sound) {
-													soundPool.play(se, 0.5F, 0.5F, 0, 0, 1.0F);
-												}
+
 											}
 										}
 
